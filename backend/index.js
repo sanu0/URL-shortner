@@ -25,17 +25,6 @@ app.post('/shortUrl',async function (req,res){
     else{
         let str = "";
         for(let i=0;i<10;i++){
-            //let c = Math.floor((Math.random() * 3)+1);
-            // switch(c){
-            //     case 1:
-            //         str = str + String.fromCharCode(Math.floor(Math.random() * (122 - 97 + 1)) + 97);
-            //         break;
-            //     case 2:
-            //         str = str + String.fromCharCode(Math.floor(Math.random() * (90 - 65 + 1)) + 65);
-            //         break;
-            //     default:
-            //         str = str + String.fromCharCode(Math.floor(Math.random() * (39 - 30 + 1)) + 30);
-            // }
             str = str + String.fromCharCode(Math.floor(Math.random() * (122 - 97 + 1)) + 97);
         }
         console.log(str);
@@ -44,7 +33,8 @@ app.post('/shortUrl',async function (req,res){
             shortUrl : str
         })
         return res.json({
-            msg : "shortened url created"
+            msg : "shortened url created",
+            url : str
         })
     }
 })

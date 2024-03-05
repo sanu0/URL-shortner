@@ -34,23 +34,25 @@ app.post('/shortUrl',async function (req,res){
         })
         return res.json({
             msg : "shortened url created",
-            url : str
+            url : "localhost:3000/" + str
         })
     }
 })
 
-app.get("/getUrl",async function(req,res){
-    const prev = req.query.q;
-    console.log(prev);
-    const a = await url.findOne({
-        shortUrl : prev
-    });
-    console.log(a);
-    return res.json({
-        mainUrl : a.mainUrl
-    })
 
-})
+app.get('/:id', async function (req, res){
+    const shortCode = req.params.id;
+    
+    const originalUrl = await url.findOne({
+        shortUrl : shortCode
+    });
+    console.log(originalUrl.mainUrl);
+    if (originalUrl) {
+      res.redirect(originalUrl.mainUrl);
+    } else {
+      res.status(404).send('Not found');
+    }
+});
 
 
 app.listen(3000);

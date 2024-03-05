@@ -4,14 +4,12 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 import { ShortUrl} from './components/ShortUrl'
-import {Url} from './components/Url'
 
 function App() {
 
   return (
     <div>
         <ShortUrl></ShortUrl>
-        
     </div>
   )
 }

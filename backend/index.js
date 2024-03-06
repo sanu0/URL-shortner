@@ -24,8 +24,10 @@ app.post('/shortUrl',async function (req,res){
     }
     else{
         let str = "";
-        for(let i=0;i<10;i++){
+        for(let i=0;i<2;i++){
             str = str + String.fromCharCode(Math.floor(Math.random() * (122 - 97 + 1)) + 97);
+            str = str + String.fromCharCode(Math.floor(Math.random() * (90 - 65 + 1)) + 65);
+            str = str + String.fromCharCode(Math.floor(Math.random() * (57 - 49 + 1)) + 49);
         }
         console.log(str);
         await url.create({
